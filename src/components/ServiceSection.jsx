@@ -18,65 +18,67 @@ import capsule from "../assets/images/home/capsule.jpg";
 import hydrolic from "../assets/images/home/hydrolic.jpg";
 import manual from "../assets/images/home/chanel.jpg";
 import auto from "../assets/images/home/auto.avif";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     title: "Traction Elevator",
-    description:
-      "High-speed and energy-efficient elevators with smooth operation, perfect for modern high-rise buildings.",
+    description: "High-speed and energy-efficient elevators with smooth operation, perfect for modern high-rise buildings.",
     icon: <FaBuilding className="text-3xl text-red-800" />,
     img: traction,
+    link: "/services/traction-elevator",
   },
   {
     title: "Hospital Elevator",
-    description:
-      "Spacious and reliable elevators designed for patient care, stretchers, and emergency transport.",
+    description: "Spacious and reliable elevators designed for patient care, stretchers, and emergency transport.",
     icon: <FaHospital className="text-3xl text-red-800" />,
     img: hospital,
+    link: "/services/hospital-elevator",
   },
   {
     title: "Manual Door Elevator",
-    description:
-      "Cost-effective and durable elevators with traditional manual door systems for simplicity and longevity.",
+    description: "Cost-effective and durable elevators with traditional manual door systems for simplicity and longevity.",
     icon: <FaDoorClosed className="text-3xl text-red-800" />,
     img: manual,
+    link: "/services/manual-door-elevator",
   },
   {
     title: "Auto Door Elevator",
-    description:
-      "Automatic sliding door elevators with sleek design, safety sensors, and quiet performance.",
+    description: "Automatic sliding door elevators with sleek design, safety sensors, and quiet performance.",
     icon: <FaDoorOpen className="text-3xl text-red-800" />,
     img: auto,
+    link: "/services/auto-door-elevator",
   },
   {
     title: "Goods Elevator",
-    description:
-      "Heavy-duty elevators built for warehouses and factories, capable of lifting large and heavy loads with ease.",
+    description: "Heavy-duty elevators built for warehouses and factories, capable of lifting large and heavy loads with ease.",
     icon: <FaDolly className="text-3xl text-red-800" />,
     img: good,
+    link: "/services/goods-elevator",
   },
   {
     title: "Escalator",
-    description:
-      "Efficient and stylish escalators for malls, airports, and public spaces with low maintenance needs.",
+    description: "Efficient and stylish escalators for malls, airports, and public spaces with low maintenance needs.",
     icon: <FaRoad className="text-3xl text-red-800" />,
     img: jeene,
+    link: "/services/escalator",
   },
   {
     title: "Capsule Elevator",
-    description:
-      "Futuristic panoramic elevators with glass walls, offering a luxurious and scenic ride experience.",
+    description: "Futuristic panoramic elevators with glass walls, offering a luxurious and scenic ride experience.",
     icon: <FaRocket className="text-3xl text-red-800" />,
     img: capsule,
+    link: "/services/capsule-elevator",
   },
   {
     title: "Hydraulic Elevator",
-    description:
-      "Smooth and quiet elevators using hydraulic systems, ideal for low-rise buildings and villas.",
+    description: "Smooth and quiet elevators using hydraulic systems, ideal for low-rise buildings and villas.",
     icon: <FaWater className="text-3xl text-red-800" />,
     img: hydrolic,
+    link: "/services/hydraulic-elevator",
   },
 ];
+
 
 export default function Service() {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -138,34 +140,28 @@ export default function Service() {
       {/* Services Grid */}
       <div className="mt-16 flex flex-wrap justify-center gap-8 relative z-10">
         <AnimatePresence>
-          {services.slice(0, visibleCount).map((service, idx) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="w-72 bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center border border-white/30 overflow-hidden relative group"
-            >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-red-100/10 via-white/5 to-red-50/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <img
-                src={service.img}
-                alt={service.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="relative flex flex-col items-center p-4 -mt-10">
-                <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white border-2 border-red-800 shadow-md shadow-red-200">
-                  {service.icon}
-                </div>
-                <h4 className="mt-4 text-lg font-bold text-gray-900 uppercase">
-                  {service.title}
-                </h4>
-                <p className="mt-2 text-sm text-gray-600">{service.description}</p>
-              </div>
-            </motion.div>
-          ))}
+        {services.slice(0, visibleCount).map((service, idx) => (
+  <motion.div
+    key={service.title}
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 40 }}
+    transition={{ duration: 0.6, delay: idx * 0.15 }}
+    className="w-72 bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center border border-white/30 overflow-hidden relative group"
+  >
+    <Link to={service.link}>
+      <div className="absolute inset-0 bg-gradient-to-br from-red-100/10 via-white/5 to-red-50/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <img src={service.img} alt={service.title} className="w-full h-48 object-cover" />
+      <div className="relative flex flex-col items-center p-4 -mt-10">
+        <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white border-2 border-red-800 shadow-md shadow-red-200">
+          {service.icon}
+        </div>
+        <h4 className="mt-4 text-lg font-bold text-gray-900 uppercase">{service.title}</h4>
+        <p className="mt-2 text-sm text-gray-600">{service.description}</p>
+      </div>
+    </Link>
+  </motion.div>
+))}
         </AnimatePresence>
       </div>
 

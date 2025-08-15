@@ -33,16 +33,18 @@ const containerVariants = {
 };
 
 // Services with icons
+// Services with icons + routes
 const services = [
-  { name: "Traction Elevator", icon: <FaBuilding className="text-red-800 mr-2" /> },
-  { name: "Hospital Elevator", icon: <FaHospital className="text-red-800 mr-2" /> },
-  { name: "Manual Door Elevator", icon: <FaDoorClosed className="text-red-800 mr-2" /> },
-  { name: "Auto Door Elevator", icon: <FaDoorOpen className="text-red-800 mr-2" /> },
-  { name: "Goods Elevator", icon: <FaDolly className="text-red-800 mr-2" /> },
-  { name: "Escalator", icon: <FaRoad className="text-red-800 mr-2" /> },
-  { name: "Capsule Elevator", icon: <FaRocket className="text-red-800 mr-2" /> },
-  { name: "Hydraulic Elevator", icon: <FaWater className="text-red-800 mr-2" /> },
+  { name: "Traction Elevator", icon: <FaBuilding className="text-red-800 mr-2" />, link: "/services/traction-elevator" },
+  { name: "Hospital Elevator", icon: <FaHospital className="text-red-800 mr-2" />, link: "/services/hospital-elevator" },
+  { name: "Manual Door Elevator", icon: <FaDoorClosed className="text-red-800 mr-2" />, link: "/services/manual-door-elevator" },
+  { name: "Auto Door Elevator", icon: <FaDoorOpen className="text-red-800 mr-2" />, link: "/services/auto-door-elevator" },
+  { name: "Goods Elevator", icon: <FaDolly className="text-red-800 mr-2" />, link: "/services/goods-elevator" },
+  { name: "Escalator", icon: <FaRoad className="text-red-800 mr-2" />, link: "/services/escalator" },
+  { name: "Capsule Elevator", icon: <FaRocket className="text-red-800 mr-2" />, link: "/services/capsule-elevator" },
+  { name: "Hydraulic Elevator", icon: <FaWater className="text-red-800 mr-2" />, link: "/services/hydraulic-elevator" },
 ];
+
 
 export default function Footer() {
   const controls = useAnimation();
@@ -123,16 +125,17 @@ export default function Footer() {
         {/* Services */}
         <div>
           <h4 className="font-[poppins] font-bold text-3xl mb-4 text-red-800">Our Services</h4>
-          <ul className="space-y-2 text-gray-800">
-            {services.map(({ name, icon }, i) => (
-              <li key={i} className="flex items-center">
-                {icon}
-                <Link to="/services" className="hover:text-red-800 transition duration-300">
-                  {name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+         <ul className="space-y-2 text-gray-800">
+  {services.map(({ name, icon, link }, i) => (
+    <li key={i} className="flex items-center">
+      {icon}
+      <Link to={link} className="hover:text-red-800 transition duration-300">
+        {name}
+      </Link>
+    </li>
+  ))}
+</ul>
+
         </div>
 
        {/* Contact & Social */}

@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import services from "./services";
 import { FaCheckCircle } from "react-icons/fa";
+import ServiceSlider from "../components/ServiceSlider";
 
 export default function ServiceDetailPage() {
   const { id } = useParams();
@@ -24,6 +25,7 @@ export default function ServiceDetailPage() {
   }
 
   return (
+    <>
     <div className="font-[poppins] relative">
       {/* SVG Background */}
       <div className="absolute inset-0 -z-10">
@@ -143,5 +145,7 @@ export default function ServiceDetailPage() {
 </section>
 
     </div>
+    <ServiceSlider/>
+    </>
   );
 }
