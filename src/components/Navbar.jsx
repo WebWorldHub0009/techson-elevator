@@ -5,6 +5,7 @@ import {
   FaHome, FaInfoCircle, FaCamera, FaFile, FaCogs, FaBook
 } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+import logo from "../assets/techlogo.png"
 
 const TechsonNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -83,11 +84,14 @@ const TechsonNavbar = () => {
           </div>
 
           {/* Logo */}
-          <Link to="/">
-            <h1 className="text-2xl font-extrabold tracking-wide text-[#B21B27]">
-              Techson Elevator
-            </h1>
-          </Link>
+         <Link to="/">
+  <img
+    src={logo}
+    alt="Techson Elevator"
+    className="h-14 w-58 object-contain"
+  />
+</Link>
+
 
           {/* CTA */}
           <div className="flex items-center gap-4">
