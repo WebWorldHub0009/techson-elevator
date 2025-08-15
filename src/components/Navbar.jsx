@@ -59,17 +59,34 @@ const TechsonNavbar = () => {
 
   return (
     <>
+
       {/* Top Info Bar */}
-      <div className="bg-[#B21B27] text-white text-xs py-2 px-4 flex justify-between flex-wrap font-medium">
-        <div className="flex gap-3 flex-wrap">
-          <span>📧 <a href="mailto:Techsonelevator@gmail.com" className="hover:underline">Techsonelevator@gmail.com</a></span>
-          <span>📧 <a href="mailto:Info@techsonelevator.in" className="hover:underline">Info@techsonelevator.in</a></span>
-        </div>
-        <div className="flex gap-3 flex-wrap">
-          <span>📞 <a href="tel:+918299598884" className="hover:underline">+91 82995 98884</a></span>
-          <span>📞 <a href="tel:+917007665064" className="hover:underline">+91 70076 65064</a></span>
-        </div>
-      </div>
+     <div className="bg-[#B21B27] text-white text-[11px] py-1 px-3 font-medium">
+  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+
+    {/* Pair 1 */}
+    <div className="flex flex-wrap items-center justify-between gap-2">
+      <a href="mailto:Techsonelevator@gmail.com" className="flex items-center gap-1 hover:underline">
+        📧 Techsonelevator@gmail.com
+      </a>
+      <a href="tel:+918299598884" className="flex items-center gap-1 hover:underline">
+        📞 +91 82995 98884
+      </a>
+    </div>
+
+    {/* Pair 2 */}
+    <div className="flex flex-wrap items-center justify-between gap-2">
+      <a href="mailto:Info@techsonelevator.in" className="flex items-center gap-1 hover:underline">
+        📧 Info@techsonelevator.in
+      </a>
+      <a href="tel:+917007665064" className="flex items-center gap-1 hover:underline">
+        📞 +91 70076 65064
+      </a>
+    </div>
+
+  </div>
+</div>
+
 
       {/* Main Navbar */}
       <header className="bg-white shadow-md z-50 border-b border-gray-100">
@@ -88,7 +105,7 @@ const TechsonNavbar = () => {
   <img
     src={logo}
     alt="Techson Elevator"
-    className="h-14 w-58 object-contain"
+    className="h-14 w-auto object-contain"
   />
 </Link>
 
